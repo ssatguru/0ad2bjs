@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<title>Blender to CloudParty Animation Converter</title>
+	<meta charset="utf-8">
+	<meta name="description" content="CloudParty, blender, collada, animation">
+	<meta name="keywords" content="CloudParty, blender, collada, animation">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <!-- Bootstrap -->
+	 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+	<script type="text/javascript" src="js/gl-matrix-2.01.min.js"></script>
+	<script type="text/javascript" src="js/b2c.js"></script>
+
+	<script id="blender_m_skeleton_data" type="text/xml">
+		<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+		  <asset>
+		    <contributor>
+		      <author>Blender User</author>
+		      <authoring_tool>Blender 2.65.0 r53189</authoring_tool>
+		    </contributor>
+		    <created>2013-02-09T22:16:19</created>
+		    <modified>2013-02-09T22:16:19</modified>
+		    <unit name="centimeter" meter="0.01"/>
+		    <up_axis>Z_UP</up_axis>
+		  </asset>
+		  <library_images/>
+		  <library_controllers/>
+		  <library_visual_scenes>
+		    <visual_scene id="Scene" name="Scene">
+		      <node id="b_root" name="b_root" type="NODE">
+			<translate sid="location">0 0 0</translate>
+			<rotate sid="rotationZ">0 0 1 180</rotate>
+			<rotate sid="rotationY">0 1 0 0</rotate>
+			<rotate sid="rotationX">1 0 0 0</rotate>
+			<scale sid="scale">1 1 1</scale>
+			<node id="b_root" name="b_root" sid="b_root" type="JOINT">
+			  <matrix sid="transform">1 -1.42109e-14 0 0 -1.42109e-14 1 -1.86265e-9 0 -4.44089e-16 0 1 0 0 0 0 1</matrix>
+			  <node id="b_hips" name="b_hips" sid="b_hips" type="JOINT">
+			    <matrix sid="transform">1 2.84217e-14 -3.9968e-15 2.27678e-12 0 0.9999999 0 -2.816981 -1.33227e-15 -1.67638e-8 0.9999999 109.0458 0 0 0 1</matrix>
+			    <node id="b_LupperLeg" name="b_LupperLeg" sid="b_LupperLeg" type="JOINT">
+			      <matrix sid="transform">1 1.41809e-8 2.73237e-9 -8.482906 -1.28088e-8 0.9999999 -2.98023e-8 1.588835 1.6678e-9 -7.00355e-7 1 -15.58178 0 0 0 1</matrix>
+			      <node id="b_LlowerLeg" name="b_LlowerLeg" sid="b_LlowerLeg" type="JOINT">
+				<matrix sid="transform">0.9999999 1.04308e-7 -3.72529e-9 0.83606 -1.49012e-8 1 1.49012e-8 3.434895 9.35048e-7 -1.41561e-7 1 -42.24456 0 0 0 1</matrix>
+				<node id="b_Lfoot" name="b_Lfoot" sid="b_Lfoot" type="JOINT">
+				  <matrix sid="transform">0.9999999 -5.96046e-8 -5.02914e-8 1.272651 -1.19209e-7 1 8.56817e-8 -1.926125 8.19564e-8 5.55068e-7 0.9999999 -42.67378 0 0 0 1</matrix>
+				  <node id="b_Ltoe" name="b_Ltoe" sid="b_Ltoe" type="JOINT">
+				    <matrix sid="transform">1 -4.09782e-8 -2.04891e-8 -0.2127269 -1.86265e-9 1 8.9407e-8 10.36272 9.31323e-10 8.9407e-8 1 -6.641058 0 0 0 1</matrix>
+				  </node>
+				</node>
+			      </node>
+			    </node>
+			    <node id="b_RupperLeg" name="b_RupperLeg" sid="b_RupperLeg" type="JOINT">
+			      <matrix sid="transform">1 1.41809e-8 -9.92927e-10 8.482903 1.6744e-8 0.9999999 1.49012e-8 1.588839 -2.18019e-9 -6.70552e-7 1 -15.58178 0 0 0 1</matrix>
+			      <node id="b_RlowerLeg" name="b_RlowerLeg" sid="b_RlowerLeg" type="JOINT">
+				<matrix sid="transform">1 7.45058e-8 -3.72529e-9 -0.836058 -5.96046e-8 1 0 3.434899 5.10365e-7 2.6077e-7 0.9999999 -42.24456 0 0 0 1</matrix>
+				<node id="b_Rfoot" name="b_Rfoot" sid="b_Rfoot" type="JOINT">
+				  <matrix sid="transform">0.9999999 -5.96046e-8 1.86265e-8 -1.272648 5.96046e-8 0.9999999 7.45058e-8 -1.926118 3.59491e-7 -1.56462e-7 1 -42.67377 0 0 0 1</matrix>
+				  <node id="b_Rtoe" name="b_Rtoe" sid="b_Rtoe" type="JOINT">
+				    <matrix sid="transform">0.9999999 -7.26432e-8 -5.02914e-8 0.2127278 -4.19095e-9 1 5.96046e-8 10.36273 -9.22009e-8 0 0.9999999 -6.641053 0 0 0 1</matrix>
+				  </node>
+				</node>
+			      </node>
+			    </node>
+			    <node id="b_rear" name="b_rear" sid="b_rear" type="JOINT">
+			      <matrix sid="transform">1 2.84217e-14 -3.55271e-15 -5.15375e-13 0 0.9999999 1.49012e-8 -1.352442 3.89022e-13 -7.00355e-7 1 -10.38686 0 0 0 1</matrix>
+			    </node>
+			    <node id="b_lumbar" name="b_lumbar" sid="b_lumbar" type="JOINT">
+			      <matrix sid="transform">1 1.42109e-14 -3.55271e-15 -5.15375e-13 0 0.9999999 0 1.89138e-6 3.85469e-13 -6.85453e-7 1 -2.46272e-7 0 0 0 1</matrix>
+			      <node id="b_back" name="b_back" sid="b_back" type="JOINT">
+				<matrix sid="transform">1 -1.7053e-13 -3.10862e-15 6.97567e-13 -2.27374e-13 1 5.58794e-9 0.1812243 -1.61382e-12 3.66289e-6 0.9999999 15.08485 0 0 0 1</matrix>
+				<node id="b_neck" name="b_neck" sid="b_neck" type="JOINT">
+				  <matrix sid="transform">1 4.54747e-13 -2.4869e-14 9.09495e-12 0 1 -2.79397e-9 -2.576116 -1.47473e-11 2.53692e-6 1 29.72474 0 0 0 1</matrix>
+				  <node id="b_head" name="b_head" sid="b_head" type="JOINT">
+				    <matrix sid="transform">1 -4.26326e-14 3.55271e-15 -4.88047e-13 -1.42109e-14 1 0 0.6790323 -6.21725e-15 -5.66244e-7 1 8.558921 0 0 0 1</matrix>
+				    <node id="b_cranium" name="b_cranium" sid="b_cranium" type="JOINT">
+				      <matrix sid="transform">1 -5.68434e-14 3.55271e-15 -5.09482e-13 -5.68434e-14 1 -7.45058e-9 0.3341748 -2.38387e-12 3.12179e-6 0.9999999 8.256972 0 0 0 1</matrix>
+				    </node>
+				  </node>
+				</node>
+				<node id="b_ribs" name="b_ribs" sid="b_ribs" type="JOINT">
+				  <matrix sid="transform">1 -4.54747e-13 7.10543e-15 1.09139e-11 0 1 0 4.460938 -1.47509e-11 2.54158e-6 1 1.575508 0 0 0 1</matrix>
+				</node>
+				<node id="b_chest" name="b_chest" sid="b_chest" type="JOINT">
+				  <matrix sid="transform">1 -4.54747e-13 7.10543e-15 0 0 1 0 9.13399 -1.47509e-11 2.54158e-6 1 13.06588 0 0 0 1</matrix>
+				</node>
+				<node id="b_Lclav" name="b_Lclav" sid="b_Lclav" type="JOINT">
+				  <matrix sid="transform">1 1.05847e-8 9.96693e-10 -3.929029 -3.83625e-9 1 3.72529e-9 2.052327 -7.40567e-9 2.53879e-6 1 21.07821 0 0 0 1</matrix>
+				  <node id="b_LupperArm" name="b_LupperArm" sid="b_LupperArm" type="JOINT">
+				    <matrix sid="transform">0.9999998 -4.28408e-8 -2.98023e-8 -13.79213 -4.19095e-8 0.9999999 3.72529e-9 -7.021128 -1.60187e-6 3.72529e-7 1 -1.274183 0 0 0 1</matrix>
+				    <node id="b_LlowerArm" name="b_LlowerArm" sid="b_LlowerArm" type="JOINT">
+				      <matrix sid="transform">1 1.81608e-8 2.98023e-8 -19.56905 -4.88944e-8 1 -3.25963e-8 -0.3246512 -1.49012e-7 -4.56348e-8 1 -16.28374 0 0 0 1</matrix>
+				      <node id="b_Lhand" name="b_Lhand" sid="b_Lhand" type="JOINT">
+					<matrix sid="transform">1 5.96046e-8 2.98023e-8 -16.58128 2.98023e-8 1 0 9.033027 -5.96046e-8 1.04308e-7 0.9999998 -13.06576 0 0 0 1</matrix>
+				      </node>
+				    </node>
+				  </node>
+				</node>
+				<node id="b_Rclav" name="b_Rclav" sid="b_Rclav" type="JOINT">
+				  <matrix sid="transform">1 1.40781e-8 8.44728e-9 3.929029 -4.19282e-8 1 -9.31323e-10 2.052327 5.03071e-10 2.54158e-6 0.9999999 21.07821 0 0 0 1</matrix>
+				  <node id="b_RupperArm" name="b_RupperArm" sid="b_RupperArm" type="JOINT">
+				    <matrix sid="transform">0.9999999 -7.91624e-8 -2.23517e-8 13.79212 -3.93484e-8 1 0 -7.021125 -2.60025e-6 -1.35973e-6 1 -1.274244 0 0 0 1</matrix>
+				    <node id="b_RlowerArm" name="b_RlowerArm" sid="b_RlowerArm" type="JOINT">
+				      <matrix sid="transform">1 -1.86265e-9 0 19.56905 1.76951e-8 1 1.86265e-9 -0.3246446 2.98023e-8 0 1 -16.28373 0 0 0 1</matrix>
+				      <node id="b_Rhand" name="b_Rhand" sid="b_Rhand" type="JOINT">
+					<matrix sid="transform">0.9999999 -8.9407e-8 -2.98023e-8 16.58124 5.96046e-8 0.9999999 2.98023e-8 9.033093 2.98023e-8 8.9407e-8 0.9999998 -13.06575 0 0 0 1</matrix>
+				      </node>
+				    </node>
+				  </node>
+				</node>
+			      </node>
+			    </node>
+			  </node>
+			</node>
+		      </node>
+		    </visual_scene>
+		  </library_visual_scenes>
+		  <scene>
+		    <instance_visual_scene url="#Scene"/>
+		  </scene>
+		</COLLADA>
+	</script>
+
+	<script id="blender_f_skeleton_data" type="text/xml">
+		<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+		  <asset>
+		    <contributor>
+		      <author>Blender User</author>
+		      <authoring_tool>Blender 2.65.0 r53189</authoring_tool>
+		    </contributor>
+		    <created>2013-02-13T22:37:27</created>
+		    <modified>2013-02-13T22:37:27</modified>
+		    <unit name="centimeter" meter="0.01"/>
+		    <up_axis>Z_UP</up_axis>
+		  </asset>
+		  <library_images/>
+		  <library_controllers/>
+		  <library_visual_scenes>
+		    <visual_scene id="Scene" name="Scene">
+		      <node id="Armature_001" name="Armature_001" type="NODE">
+			<translate sid="location">0 0 0</translate>
+			<rotate sid="rotationZ">0 0 1 0</rotate>
+			<rotate sid="rotationY">0 1 0 0</rotate>
+			<rotate sid="rotationX">1 0 0 0</rotate>
+			<scale sid="scale">1 1 1</scale>
+			<node id="b_root" name="b_root" sid="b_root" type="JOINT">
+			  <matrix sid="transform">1 0 0 0 1.13687e-13 1 0 0 3.55271e-15 0 1 0 0 0 0 1</matrix>
+			  <node id="b_hips" name="b_hips" sid="b_hips" type="JOINT">
+			    <matrix sid="transform">1 2.27374e-13 1.77636e-14 4.99995e-6 0 1 -1.86265e-8 -2.955415 -7.10543e-15 1.86265e-8 1 109.6755 0 0 0 1</matrix>
+			    <node id="b_LupperLeg" name="b_LupperLeg" sid="b_LupperLeg" type="JOINT">
+			      <matrix sid="transform">1 1.16294e-8 8.92953e-10 -8.452063 -1.7225e-8 0.9999998 1.49012e-8 1.716568 -1.51423e-9 2.89083e-6 0.9999993 -12.21786 0 0 0 1</matrix>
+			      <node id="b_LlowerLeg" name="b_LlowerLeg" sid="b_LlowerLeg" type="JOINT">
+				<matrix sid="transform">1 1.49012e-8 0 0.8495932 -4.47035e-8 1 -7.45058e-9 3.49062 -3.03611e-7 3.35276e-7 1 -42.92935 0 0 0 1</matrix>
+				<node id="b_Lfoot" name="b_Lfoot" sid="b_Lfoot" type="JOINT">
+				  <matrix sid="transform">1 -2.98023e-8 -1.30385e-8 1.355554 -1.19209e-7 1 1.86265e-8 -2.051584 4.787e-7 9.90927e-7 0.9999999 -45.45382 0 0 0 1</matrix>
+				  <node id="b_Ltoe" name="b_Ltoe" sid="b_Ltoe" type="JOINT">
+				    <matrix sid="transform">0.9999999 -6.61239e-8 -2.70084e-8 -0.2233735 1.86265e-9 1 2.98023e-8 10.5703 -2.8871e-8 5.96046e-8 1 -7.416395 0 0 0 1</matrix>
+				  </node>
+				</node>
+			      </node>
+			    </node>
+			    <node id="b_RupperLeg" name="b_RupperLeg" sid="b_RupperLeg" type="JOINT">
+			      <matrix sid="transform">1 -3.27168e-9 -9.69685e-10 8.453907 1.23279e-8 0.9999999 2.98023e-8 1.716572 -5.36221e-9 2.90573e-6 0.9999993 -12.21789 0 0 0 1</matrix>
+			      <node id="b_RlowerLeg" name="b_RlowerLeg" sid="b_RlowerLeg" type="JOINT">
+				<matrix sid="transform">1 0 1.86265e-9 -0.8495946 4.47035e-8 0.9999999 7.45058e-9 3.490621 1.04867e-6 4.54485e-7 1 -42.92936 0 0 0 1</matrix>
+				<node id="b_Rfoot" name="b_Rfoot" sid="b_Rfoot" type="JOINT">
+				  <matrix sid="transform">0.9999999 2.98023e-8 -9.31323e-9 -1.355557 -2.98023e-8 1 1.86265e-8 -2.051586 -1.02445e-7 1.9744e-7 1 -45.45383 0 0 0 1</matrix>
+				  <node id="b_Rtoe" name="b_Rtoe" sid="b_Rtoe" type="JOINT">
+				    <matrix sid="transform">1 2.93367e-8 1.86265e-8 0.2233727 1.39698e-9 1 2.98023e-8 10.5703 1.14553e-7 -5.96046e-8 1 -7.416388 0 0 0 1</matrix>
+				  </node>
+				</node>
+			      </node>
+			    </node>
+			    <node id="b_rear" name="b_rear" sid="b_rear" type="JOINT">
+			      <matrix sid="transform">1 1.7053e-13 -1.42109e-14 -1.3044e-12 -5.68434e-14 0.9999999 2.98023e-8 -1.418922 1.25766e-12 2.89083e-6 0.9999994 -10.89745 0 0 0 1</matrix>
+			    </node>
+			    <node id="b_lumbar" name="b_lumbar" sid="b_lumbar" type="JOINT">
+			      <matrix sid="transform">1 6.82121e-13 -2.84217e-14 4.21398e-12 1.13687e-13 0.9999998 1.49012e-8 3.78277e-6 1.22924e-12 2.90573e-6 0.9999994 -4.92542e-7 0 0 0 1</matrix>
+			      <node id="b_back" name="b_back" sid="b_back" type="JOINT">
+				<matrix sid="transform">1 -4.54747e-13 7.10543e-15 3.62702e-11 -9.09495e-13 1 -2.79397e-9 0.2038166 -2.69864e-11 -1.30944e-6 0.9999999 16.95749 0 0 0 1</matrix>
+				<node id="b_neck" name="b_neck" sid="b_neck" type="JOINT">
+				  <matrix sid="transform">1 -1.81899e-12 3.55271e-14 6.00267e-11 -1.36424e-12 0.9999999 9.31323e-10 -2.091887 -5.96785e-11 5.19771e-6 0.9999999 24.13612 0 0 0 1</matrix>
+				  <node id="b_head" name="b_head" sid="b_head" type="JOINT">
+				    <matrix sid="transform">1 -1.86174e-8 1.02318e-12 -6.99997e-6 3.68218e-8 1 0 0.4355599 2.16005e-12 2.49222e-6 0.9999999 11.3882 0 0 0 1</matrix>
+				    <node id="b_cranium" name="b_cranium" sid="b_cranium" type="JOINT">
+				      <matrix sid="transform">1 0 1.28966e-9 6.60435e-5 -5.96046e-8 1 1.27784e-10 3.8288e-5 -1.49521e-6 -3.20621e-7 1 7.54541 0 0 0 1</matrix>
+				    </node>
+				  </node>
+				</node>
+				<node id="b_ribs" name="b_ribs" sid="b_ribs" type="JOINT">
+				  <matrix sid="transform">1 0 -7.10543e-15 -1.09139e-11 0 0.9999999 1.86265e-9 4.054284 -5.96287e-11 5.19119e-6 0.9999999 -0.1475831 0 0 0 1</matrix>
+				</node>
+				<node id="b_chest" name="b_chest" sid="b_chest" type="JOINT">
+				  <matrix sid="transform">1 0 -7.10543e-15 -1.45519e-11 0 0.9999999 1.86265e-9 8.455689 -5.96287e-11 5.19119e-6 0.9999998 10.22353 0 0 0 1</matrix>
+				</node>
+				<node id="b_Lclav" name="b_Lclav" sid="b_Lclav" type="JOINT">
+				  <matrix sid="transform">0.9999999 -1.15779e-8 1.16912e-9 -3.44515 1.27275e-8 0.9999999 1.86265e-9 2.142523 -7.60615e-9 5.19026e-6 0.9999998 20.33886 0 0 0 1</matrix>
+				  <node id="b_LupperArm" name="b_LupperArm" sid="b_LupperArm" type="JOINT">
+				    <matrix sid="transform">1 -2.21189e-8 -7.45058e-9 -9.624697 -7.19447e-8 1 1.49012e-8 -5.830484 -3.49432e-6 -1.3411e-7 0.9999995 -0.8287521 0 0 0 1</matrix>
+				    <node id="b_LlowerArm" name="b_LlowerArm" sid="b_LlowerArm" type="JOINT">
+				      <matrix sid="transform">1 -2.04891e-8 -8.9407e-8 -21.46081 2.42144e-8 0.9999999 -2.23517e-8 -1.577068 -2.98023e-8 5.21541e-8 1.000001 -16.45596 0 0 0 1</matrix>
+				      <node id="b_Lhand" name="b_Lhand" sid="b_Lhand" type="JOINT">
+					<matrix sid="transform">0.9999999 -2.98023e-8 -2.98023e-8 -17.51814 1.49012e-8 1 1.49012e-8 9.306281 3.57628e-7 0 1 -13.61175 0 0 0 1</matrix>
+				      </node>
+				    </node>
+				  </node>
+				</node>
+				<node id="b_Rclav" name="b_Rclav" sid="b_Rclav" type="JOINT">
+				  <matrix sid="transform">1 2.98655e-8 1.60703e-8 3.445115 -6.38674e-8 1 9.31323e-10 2.142523 -6.68553e-9 5.1856e-6 0.9999998 20.33886 0 0 0 1</matrix>
+				  <node id="b_RupperArm" name="b_RupperArm" sid="b_RupperArm" type="JOINT">
+				    <matrix sid="transform">1 -9.01055e-8 0 9.624725 4.19095e-8 0.9999999 0 -5.830488 3.82215e-6 -2.01166e-7 0.9999996 -0.8287354 0 0 0 1</matrix>
+				    <node id="b_RlowerArm" name="b_RlowerArm" sid="b_RlowerArm" type="JOINT">
+				      <matrix sid="transform">1 2.42144e-8 0 21.46082 -3.72529e-8 0.9999999 -1.49012e-8 -1.57707 1.78814e-6 -1.11759e-7 0.9999996 -16.45589 0 0 0 1</matrix>
+				      <node id="b_Rhand" name="b_Rhand" sid="b_Rhand" type="JOINT">
+					<matrix sid="transform">0.9999999 -7.45058e-8 0 17.51814 1.49012e-8 1 2.98023e-8 9.306285 -3.57628e-7 4.47035e-8 0.9999998 -13.61175 0 0 0 1</matrix>
+				      </node>
+				    </node>
+				  </node>
+				</node>
+			      </node>
+			    </node>
+			  </node>
+			</node>
+		      </node>
+		    </visual_scene>
+		  </library_visual_scenes>
+		  <scene>
+		    <instance_visual_scene url="#Scene"/>
+		  </scene>
+		</COLLADA>
+	</script>
+
+	<script id="cp_m_skeleton_data" type="text/xml">
+		<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+		  <asset>
+		    <contributor>
+		      <author></author>
+		      <authoring_tool>FBX COLLADA exporter</authoring_tool>
+		      <comments></comments>
+		    </contributor>
+		    <created>2012-10-13T00:02:26Z</created>
+		    <keywords></keywords>
+		    <modified>2012-10-13T00:02:26Z</modified>
+		    <revision></revision>
+		    <subject></subject>
+		    <title></title>
+		    <unit meter="0.010000" name="centimeter"></unit>
+		    <up_axis>Z_UP</up_axis>
+		  </asset>
+
+		  <library_visual_scenes>
+		    <visual_scene id="" name="">
+
+		       <node name="b_root" id="b_root" sid="b_root" type="JOINT">
+			<matrix sid="transform"> 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+			<extra>
+			  <technique profile="FCOLLADA">
+			    <visibility>1.000000</visibility>
+			  </technique>
+			</extra>
+			<node name="b_hips" id="b_hips" sid="b_hips" type="JOINT">
+			  <matrix sid="transform"> -0.000000  0.000000 -1.000000   0.000000 0.012021  0.999928 -0.000000  -2.816996 0.999928 -0.012021 -0.000000 109.045769 0.000000  0.000000  0.000000   1.000000
+			   </matrix>
+			  <extra>
+			    <technique profile="FCOLLADA">
+			      <visibility>1.000000</visibility>
+			    </technique>
+			  </extra>
+			  <node name="b_LupperLeg" id="b_LupperLeg" sid="b_LupperLeg" type="JOINT">
+			    <matrix sid="transform"> -0.995471  0.019636 -0.093018 -15.561538 0.093000 -0.001834 -0.995664   1.776029 -0.019722 -0.999806  0.000000   8.482906 0.000000  0.000000  0.000000   1.000000</matrix>
+			    <extra>
+			      <technique profile="FCOLLADA">
+				<visibility>1.000000</visibility>
+			      </technique>
+			    </extra>
+			    <node name="b_LlowerLeg" id="b_LlowerLeg" sid="b_LlowerLeg" type="JOINT">
+			      <matrix sid="transform"> 0.991997 -0.009823 -0.125878 42.392208 0.010217 0.999945 0.002483 0.000000 0.125846 -0.003749 0.992043 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+			      <extra>
+				<technique profile="FCOLLADA">
+				  <visibility>1.000000</visibility>
+				</technique>
+			      </extra>
+			      <node name="b_Lfoot" id="b_Lfoot" sid="b_Lfoot" type="JOINT">
+				<matrix sid="transform"> 0.500243 0.039056 0.865004 42.736145 -0.032192 0.999130 -0.026495 -0.000000 -0.865287 -0.014592 0.501065 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				<extra>
+				  <technique profile="FCOLLADA">
+				    <visibility>1.000000</visibility>
+				  </technique>
+				</extra>
+				<node name="b_Ltoe" id="b_Ltoe" sid="b_Ltoe" type="JOINT">
+				  <matrix sid="transform">0.838650 -0.000608 0.544671 12.309938 -0.005919 0.999930 0.010231 0.000000 -0.544639 -0.011804 0.838587 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				  <extra>
+				    <technique profile="FCOLLADA">
+				      <visibility>1.000000</visibility>
+				    </technique>
+				  </extra>
+				</node>
+			      </node>
+			    </node>
+			  </node>
+			  <node name="b_RupperLeg" id="b_RupperLeg" sid="b_RupperLeg" type="JOINT">
+			    <matrix sid="transform">0.995471 -0.019636 0.093018 -15.561538 -0.093000 0.001835 0.995664 1.776032 -0.019722 -0.999806 0.000000 -8.482906 0.000000 0.000000 0.000000 1.000000</matrix>
+			    <extra>
+			      <technique profile="FCOLLADA">
+				<visibility>1.000000</visibility>
+			      </technique>
+			    </extra>
+			    <node name="b_RlowerLeg" id="b_RlowerLeg" sid="b_RlowerLeg" type="JOINT">
+			      <matrix sid="transform">0.991997 -0.009823 -0.125878 -42.392208 0.010217 0.999945 0.002483 0.000000 0.125846 -0.003749 0.992043 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+			      <extra>
+				<technique profile="FCOLLADA">
+				  <visibility>1.000000</visibility>
+				</technique>
+			      </extra>
+			      <node name="b_Rfoot" id="b_Rfoot" sid="b_Rfoot" type="JOINT">
+				<matrix sid="transform">0.500243 0.039056 0.865004 -42.736145 -0.032192 0.999130 -0.026495 0.000000 -0.865287 -0.014592 0.501065 -0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				<extra>
+				  <technique profile="FCOLLADA">
+				    <visibility>1.000000</visibility>
+				  </technique>
+				</extra>
+				<node name="b_Rtoe" id="b_Rtoe" sid="b_Rtoe" type="JOINT">
+				  <matrix sid="transform">0.838650 -0.000608 0.544671 -12.309938 -0.005919 0.999930 0.010231 0.000000 -0.544639 -0.011804 0.838587 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				  <extra>
+				    <technique profile="FCOLLADA">
+				      <visibility>1.000000</visibility>
+				    </technique>
+				  </extra>
+				</node>
+			      </node>
+			    </node>
+			  </node>
+			  <node name="b_rear" id="b_rear" sid="b_rear" type="JOINT">
+			    <matrix sid="transform">1.000000 0.000000 0.000000 -10.402349 -0.000000 1.000000 -0.000000 -1.227486 -0.000000 -0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+			    <extra>
+			      <technique profile="FCOLLADA">
+				<visibility>1.000000</visibility>
+			      </technique>
+			    </extra>
+			  </node>
+			  <node name="b_lumbar" id="b_lumbar" sid="b_lumbar" type="JOINT">
+			    <matrix sid="transform">1.000000 0.000000 0.000000 0.000000 -0.000000 1.000000 -0.000000 -0.000000 -0.000000 -0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+			    <extra>
+			      <technique profile="FCOLLADA">
+				<visibility>1.000000</visibility>
+			      </technique>
+			    </extra>
+			    <node name="b_back" id="b_back" sid="b_back" type="JOINT">
+			      <matrix sid="transform">0.995156 0.098312 -0.000000 15.085922 -0.098312 0.995156 0.000000 -0.000122 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+			      <extra>
+				<technique profile="FCOLLADA">
+				  <visibility>1.000000</visibility>
+				</technique>
+			      </extra>
+			      <node name="b_neck" id="b_neck" sid="b_neck" type="JOINT">
+				<matrix sid="transform">0.986316 -0.164864 -0.000000 29.836126 0.164864 0.986316 0.000000 0.000000 -0.000000 -0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				<extra>
+				  <technique profile="FCOLLADA">
+				    <visibility>1.000000</visibility>
+				  </technique>
+				</extra>
+				<node name="b_head" id="b_head" sid="b_head" type="JOINT">
+				  <matrix sid="transform">0.999250 0.038711 -0.000000 8.585797 -0.038711 0.999250 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				  <extra>
+				    <technique profile="FCOLLADA">
+				      <visibility>1.000000</visibility>
+				    </technique>
+				  </extra>
+				  <node name="b_cranium" id="b_cranium" sid="b_cranium" type="JOINT">
+				    <matrix sid="transform">0.999464 -0.032748 -0.000000 8.263734 0.032748 0.999464 -0.000000 0.000000 0.000000 -0.000000 1.000000 -0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				    <extra>
+				      <technique profile="FCOLLADA">
+					<visibility>1.000000</visibility>
+				      </technique>
+				    </extra>
+				  </node>
+				</node>
+			      </node>
+			      <node name="b_ribs" id="b_ribs" sid="b_ribs" type="JOINT">
+				<matrix sid="transform">0.999980 -0.006248 0.000000 1.184445 0.006248 0.999980 0.000000 4.580310 -0.000000 -0.000000 1.000000 -0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				<extra>
+				  <technique profile="FCOLLADA">
+				    <visibility>1.000000</visibility>
+				  </technique>
+				</extra>
+			      </node>
+			      <node name="b_chest" id="b_chest" sid="b_chest" type="JOINT">
+				<matrix sid="transform">0.999182 -0.040438 0.000000 12.228402 0.040438 0.999182 0.000000 10.228006 -0.000000 -0.000000 1.000000 -0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				<extra>
+				  <technique profile="FCOLLADA">
+				    <visibility>1.000000</visibility>
+				  </technique>
+				</extra>
+			      </node>
+			      <node name="b_Lclav" id="b_Lclav" sid="b_Lclav" type="JOINT">
+				<matrix sid="transform">1.000000 -0.000000 -0.000000 20.822266 0.000000 1.000000 0.000000 3.864597 0.000000 -0.000000 1.000000 3.929033 0.000000 0.000000 0.000000 1.000000</matrix>
+				<extra>
+				  <technique profile="FCOLLADA">
+				    <visibility>1.000000</visibility>
+				  </technique>
+				</extra>
+				<node name="b_LupperArm" id="b_LupperArm" sid="b_LupperArm" type="JOINT">
+				  <matrix sid="transform">-0.636091 0.771594 0.005624 -0.663243 -0.067926 -0.063254 0.995683 -7.104917 0.768619 0.632963 0.092647 13.792139 0.000000 0.000000 0.000000 1.000000</matrix>
+				  <extra>
+				    <technique profile="FCOLLADA">
+				      <visibility>1.000000</visibility>
+				    </technique>
+				  </extra>
+				  <node name="b_LlowerArm" id="b_LlowerArm" sid="b_LlowerArm" type="JOINT">
+				    <matrix sid="transform">0.913953 -0.107360 -0.391360 25.460016 -0.028227 0.945219 -0.325216 -0.000000 0.404836 0.308279 0.860855 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				    <extra>
+				      <technique profile="FCOLLADA">
+					<visibility>1.000000</visibility>
+				      </technique>
+				    </extra>
+				    <node name="b_Lhand" id="b_Lhand" sid="b_Lhand" type="JOINT">
+				      <matrix sid="transform">0.998417 0.052280 -0.020727 22.961893 -0.046522 0.974854 0.217933 0.000000 0.031600 -0.216624 0.975743 -0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				      <extra>
+					<technique profile="FCOLLADA">
+					  <visibility>1.000000</visibility>
+					</technique>
+				      </extra>
+				    </node>
+				  </node>
+				</node>
+			      </node>
+			      <node name="b_Rclav" id="b_Rclav" sid="b_Rclav" type="JOINT">
+				<matrix sid="transform">-1.000000 0.000000 -0.000000 20.822264 -0.000000 -1.000000 0.000000 3.864597 -0.000000 0.000000 1.000000 -3.929031 0.000000 0.000000 0.000000 1.000000</matrix>
+				<extra>
+				  <technique profile="FCOLLADA">
+				    <visibility>1.000000</visibility>
+				  </technique>
+				</extra>
+				<node name="b_RupperArm" id="b_RupperArm" sid="b_RupperArm" type="JOINT">
+				  <matrix sid="transform">-0.636091 0.771594 0.005624 0.663243 -0.067926 -0.063254 0.995683 7.104917 0.768619 0.632963 0.092647 -13.792139 0.000000 0.000000 0.000000 1.000000</matrix>
+				  <extra>
+				    <technique profile="FCOLLADA">
+				      <visibility>1.000000</visibility>
+				    </technique>
+				  </extra>
+				  <node name="b_RlowerArm" id="b_RlowerArm" sid="b_RlowerArm" type="JOINT">
+				    <matrix sid="transform">0.913952 -0.106952 -0.391476 -25.460016 -0.028228 0.945557 -0.324230 0.000000 0.404839 0.307382 0.861174 -0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				    <extra>
+				      <technique profile="FCOLLADA">
+					<visibility>1.000000</visibility>
+				      </technique>
+				    </extra>
+				    <node name="b_Rhand" id="b_Rhand" sid="b_Rhand" type="JOINT">
+				      <matrix sid="transform">0.998417 0.052280 -0.020727 -22.961893 -0.046522 0.974854 0.217933 -0.000000 0.031600 -0.216624 0.975743 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				      <extra>
+					<technique profile="FCOLLADA">
+					  <visibility>1.000000</visibility>
+					</technique>
+				      </extra>
+				    </node>
+				  </node>
+				</node>
+			      </node>
+			    </node>
+			  </node>
+			</node>
+		      </node>
+		    </visual_scene>
+		  </library_visual_scenes>
+		  <scene>
+		    <instance_visual_scene url="#"></instance_visual_scene>
+		  </scene>
+		</COLLADA>
+
+	</script>
+
+
+	<script id="cp_f_skeleton_data" type="text/xml">
+		<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+		  <asset>
+		    <contributor>
+		      <author></author>
+		      <authoring_tool>FBX COLLADA exporter</authoring_tool>
+		      <comments></comments>
+		    </contributor>
+		    <created>2012-10-13T00:02:26Z</created>
+		    <keywords></keywords>
+		    <modified>2012-10-13T00:02:26Z</modified>
+		    <revision></revision>
+		    <subject></subject>
+		    <title></title>
+		    <unit meter="0.010000" name="centimeter"></unit>
+		    <up_axis>Z_UP</up_axis>
+		  </asset>
+
+		  <library_visual_scenes>
+		    <visual_scene id="" name="">
+			<node name="b_root" id="b_root" sid="b_root" type="JOINT">
+			<matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+			<extra>
+			  <technique profile="FCOLLADA">
+			    <visibility>1.000000</visibility>
+			  </technique>
+			</extra>
+			<node name="b_hips" id="b_hips" sid="b_hips" type="JOINT">
+			  <matrix sid="matrix">-0.000000 0.000000 -1.000000 0.000000 0.012021 0.999928 -0.000000 -2.955474 0.999928 -0.012021 -0.000000 109.675468 0.000000 0.000000 0.000000 1.000000</matrix>
+			  <extra>
+			    <technique profile="FCOLLADA">
+			      <visibility>1.000000</visibility>
+			    </technique>
+			  </extra>
+			  <node name="b_LupperLeg" id="b_LupperLeg" sid="b_LupperLeg" type="JOINT">
+			    <matrix sid="matrix">-0.995471 0.019636 -0.093018 -12.196345 0.093000 -0.001834 -0.995664 1.863335 -0.019722 -0.999806 0.000000 8.452064 0.000000 0.000000 0.000000 1.000000</matrix>
+			    <extra>
+			      <technique profile="FCOLLADA">
+				<visibility>1.000000</visibility>
+			      </technique>
+			    </extra>
+			    <node name="b_LlowerLeg" id="b_LlowerLeg" sid="b_LlowerLeg" type="JOINT">
+			      <matrix sid="matrix">0.991997 -0.009823 -0.125878 43.079433 0.010217 0.999945 0.002483 -0.000000 0.125846 -0.003749 0.992043 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+			      <extra>
+				<technique profile="FCOLLADA">
+				  <visibility>1.000000</visibility>
+				</technique>
+			      </extra>
+			      <node name="b_Lfoot" id="b_Lfoot" sid="b_Lfoot" type="JOINT">
+				<matrix sid="matrix">0.536026 0.039056 0.843297 45.520294 -0.033274 0.999130 -0.025124 -0.000000 -0.843545 -0.014592 0.536860 -0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				<extra>
+				  <technique profile="FCOLLADA">
+				    <visibility>1.000000</visibility>
+				  </technique>
+				</extra>
+				<node name="b_Ltoe" id="b_Ltoe" sid="b_Ltoe" type="JOINT">
+				  <matrix sid="matrix">0.816135 -0.001075 0.577860 12.914497 -0.005761 0.999933 0.009996 0.000000 -0.577833 -0.011487 0.816074 -0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				  <extra>
+				    <technique profile="FCOLLADA">
+				      <visibility>1.000000</visibility>
+				    </technique>
+				  </extra>
+				</node>
+			      </node>
+			    </node>
+			  </node>
+			  <node name="b_RupperLeg" id="b_RupperLeg" sid="b_RupperLeg" type="JOINT">
+			    <matrix sid="matrix">0.995471 -0.019636 0.093018 -12.196383 -0.093000 0.001835 0.995664 1.863338 -0.019722 -0.999806 0.000000 -8.453918 0.000000 0.000000 0.000000 1.000000</matrix>
+			    <extra>
+			      <technique profile="FCOLLADA">
+				<visibility>1.000000</visibility>
+			      </technique>
+			    </extra>
+			    <node name="b_RlowerLeg" id="b_RlowerLeg" sid="b_RlowerLeg" type="JOINT">
+			      <matrix sid="matrix">0.991997 -0.009823 -0.125878 -43.079433 0.010217 0.999945 0.002483 0.000000 0.125846 -0.003749 0.992043 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+			      <extra>
+				<technique profile="FCOLLADA">
+				  <visibility>1.000000</visibility>
+				</technique>
+			      </extra>
+			      <node name="b_Rfoot" id="b_Rfoot" sid="b_Rfoot" type="JOINT">
+				<matrix sid="matrix">0.536026 0.039056 0.843297 -45.520294 -0.033274 0.999130 -0.025124 0.000000 -0.843545 -0.014592 0.536860 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				<extra>
+				  <technique profile="FCOLLADA">
+				    <visibility>1.000000</visibility>
+				  </technique>
+				</extra>
+				<node name="b_Rtoe" id="b_Rtoe" sid="b_Rtoe" type="JOINT">
+				  <matrix sid="matrix">0.816135 -0.001075 0.577860 -12.914497 -0.005761 0.999933 0.009996 0.000000 -0.577833 -0.011487 0.816074 -0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				  <extra>
+				    <technique profile="FCOLLADA">
+				      <visibility>1.000000</visibility>
+				    </technique>
+				  </extra>
+				</node>
+			      </node>
+			    </node>
+			  </node>
+			  <node name="b_rear" id="b_rear" sid="b_rear" type="JOINT">
+			    <matrix sid="matrix">1.000000 0.000000 -0.000000 -10.913708 0.000000 1.000000 0.000000 -1.287827 -0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+			    <extra>
+			      <technique profile="FCOLLADA">
+				<visibility>1.000000</visibility>
+			      </technique>
+			    </extra>
+			  </node>
+			  <node name="b_lumbar" id="b_lumbar" sid="b_lumbar" type="JOINT">
+			    <matrix sid="matrix">1.000000 0.000000 -0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 -0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+			    <extra>
+			      <technique profile="FCOLLADA">
+				<visibility>1.000000</visibility>
+			      </technique>
+			    </extra>
+			    <node name="b_back" id="b_back" sid="b_back" type="JOINT">
+			      <matrix sid="matrix">0.995155 0.098317 -0.000000 16.958714 -0.098317 0.995155 0.000000 0.000000 -0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+			      <extra>
+				<technique profile="FCOLLADA">
+				  <visibility>1.000000</visibility>
+				</technique>
+			      </extra>
+			      <node name="b_neck" id="b_neck" sid="b_neck" type="JOINT">
+				<matrix sid="matrix">0.992237 -0.124362 -0.000000 24.226624 0.124362 0.992237 -0.000000 -0.000000 -0.000000 -0.000000 1.000000 -0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				<extra>
+				  <technique profile="FCOLLADA">
+				    <visibility>1.000000</visibility>
+				  </technique>
+				</extra>
+				<node name="b_head" id="b_head" sid="b_head" type="JOINT">
+				  <matrix sid="matrix">0.999269 0.038221 -0.000000 11.396555 -0.038221 0.999269 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				  <extra>
+				    <technique profile="FCOLLADA">
+				      <visibility>1.000000</visibility>
+				    </technique>
+				  </extra>
+				  <node name="b_cranium" id="b_cranium" sid="b_cranium" type="JOINT">
+				    <matrix sid="matrix">0.999464 -0.032745 -0.000000 7.545459 0.032745 0.999464 -0.000000 -0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				    <extra>
+				      <technique profile="FCOLLADA">
+					<visibility>1.000000</visibility>
+				      </technique>
+				    </extra>
+				  </node>
+				</node>
+			      </node>
+			      <node name="b_ribs" id="b_ribs" sid="b_ribs" type="JOINT">
+				<matrix sid="matrix">0.999415 0.034194 -0.000000 -0.497101 -0.034194 0.999415 -0.000000 4.026346 -0.000000 -0.000000 1.000000 -0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				<extra>
+				  <technique profile="FCOLLADA">
+				    <visibility>1.000000</visibility>
+				  </technique>
+				</extra>
+			      </node>
+			      <node name="b_chest" id="b_chest" sid="b_chest" type="JOINT">
+				<matrix sid="matrix">1.000000 0.000000 -0.000000 9.455165 -0.000000 1.000000 -0.000000 9.306880 -0.000000 -0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				<extra>
+				  <technique profile="FCOLLADA">
+				    <visibility>1.000000</visibility>
+				  </technique>
+				</extra>
+			      </node>
+			      <node name="b_Lclav" id="b_Lclav" sid="b_Lclav" type="JOINT">
+				<matrix sid="matrix">1.000000 0.000000 -0.000000 20.077871 -0.000000 1.000000 -0.000000 3.890730 -0.000000 -0.000000 1.000000 3.445151 0.000000 0.000000 0.000000 1.000000</matrix>
+				<extra>
+				  <technique profile="FCOLLADA">
+				    <visibility>1.000000</visibility>
+				  </technique>
+				</extra>
+				<node name="b_LupperArm" id="b_LupperArm" sid="b_LupperArm" type="JOINT">
+				  <matrix sid="matrix">-0.600166 0.795226 -0.086115 -0.322171 -0.110453 0.024235 0.993586 -5.880267 0.792213 0.605828 0.073290 9.624726 0.000000 0.000000 0.000000 1.000000</matrix>
+				  <extra>
+				    <technique profile="FCOLLADA">
+				      <visibility>1.000000</visibility>
+				    </technique>
+				  </extra>
+				  <node name="b_LlowerArm" id="b_LlowerArm" sid="b_LlowerArm" type="JOINT">
+				    <matrix sid="matrix">0.898048 -0.120490 -0.423075 27.089674 -0.025514 0.945871 -0.323538 0.000000 0.439157 0.301346 0.846364 -0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				    <extra>
+				      <technique profile="FCOLLADA">
+					<visibility>1.000000</visibility>
+				      </technique>
+				    </extra>
+				    <node name="b_Lhand" id="b_Lhand" sid="b_Lhand" type="JOINT">
+				      <matrix sid="matrix">0.998417 0.052280 -0.020727 24.057772 -0.046522 0.974854 0.217933 0.000000 0.031600 -0.216624 0.975743 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				      <extra>
+					<technique profile="FCOLLADA">
+					  <visibility>1.000000</visibility>
+					</technique>
+				      </extra>
+				    </node>
+				  </node>
+				</node>
+			      </node>
+			      <node name="b_Rclav" id="b_Rclav" sid="b_Rclav" type="JOINT">
+				<matrix sid="matrix">-1.000000 -0.000000 0.000000 20.077871 0.000000 -1.000000 -0.000000 3.890730 0.000000 0.000000 1.000000 -3.445154 0.000000 0.000000 0.000000 1.000000</matrix>
+				<extra>
+				  <technique profile="FCOLLADA">
+				    <visibility>1.000000</visibility>
+				  </technique>
+				</extra>
+				<node name="b_RupperArm" id="b_RupperArm" sid="b_RupperArm" type="JOINT">
+				  <matrix sid="matrix">-0.600166 0.795226 -0.086115 0.322169 -0.110453 0.024235 0.993586 5.880267 0.792213 0.605828 0.073290 -9.624726 0.000000 0.000000 0.000000 1.000000</matrix>
+				  <extra>
+				    <technique profile="FCOLLADA">
+				      <visibility>1.000000</visibility>
+				    </technique>
+				  </extra>
+				  <node name="b_RlowerArm" id="b_RlowerArm" sid="b_RlowerArm" type="JOINT">
+				    <matrix sid="matrix">0.898048 -0.120490 -0.423075 -27.089674 -0.025514 0.945871 -0.323538 -0.000000 0.439157 0.301346 0.846364 -0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				    <extra>
+				      <technique profile="FCOLLADA">
+					<visibility>1.000000</visibility>
+				      </technique>
+				    </extra>
+				    <node name="b_Rhand" id="b_Rhand" sid="b_Rhand" type="JOINT">
+				      <matrix sid="matrix">0.998417 0.052280 -0.020727 -24.057772 -0.046522 0.974854 0.217933 -0.000000 0.031600 -0.216624 0.975743 -0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+				      <extra>
+					<technique profile="FCOLLADA">
+					  <visibility>1.000000</visibility>
+					</technique>
+				      </extra>
+				    </node>
+				  </node>
+				</node>
+			      </node>
+			    </node>
+			  </node>
+			</node>
+		      </node>
+		      </visual_scene>
+		  </library_visual_scenes>
+		  <scene>
+		    <instance_visual_scene url="#"></instance_visual_scene>
+		  </scene>
+		</COLLADA>
+	</script>
+
+	<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-31088961-1']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+	</script>
+
+</head>
+
+<body onload = "main()">
+<script src="../navigator.js"></script>
+
+<div class="container">
+
+	<div class="row"><div class="span12"><div class="well well-small">
+		<hr noshade size="5" >
+		<h3>Cloud Party - Converter</h3>
+		<hr noshade size="5" >
+		<a href="http://blender.org" target="new">Blender</a> to <a href="http://www.cloudparty.com" target="new">CloudParty</a> Collada Animation File Converter
+	</div></div></div>
+
+
+	<div class="row">
+
+		<div class="span4 ">
+
+			<form class="well">
+				<fieldset>
+				<legend>Converter
+				<small>Version 0.1 Alpha</small>
+				</legend>
+
+				<br/>
+				<label>Select Avatar Type</label>
+				<label class="radio">
+					<input type="radio" name="AvType" id="MaleRadio" checked="yes" /> Male Avatar
+				</label>
+				<label class="radio">
+					<input type="radio" name="AvType" id="FemaleRadio"/> Female Avatar
+				</label>
+				<br/>
+
+				Select collada (.dae) file for conversion.
+				<input type="file" id="fileLoader" />
+				<label id="status"></label>
+
+				</fieldset>
+			</form>
+
+			<!-- Modal -->
+			<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<!--
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">�</button>
+					<h3 id="myModalLabel">Modal header</h3>
+				</div>
+				-->
+				<div class="modal-body">
+
+					Your file has been converted and is now ready for save.
+					<br>
+					<br>
+					To Save
+					<ul>
+					<li>right click the link below,
+					<li>choose 'Save link as...'
+					<li>save the file under a suitable name (preferably with a filetype of ".daeanim" )
+					</ul>
+					<br>
+					<a id ="download" download="convertedfile.daeanim" class="btn btn-success" >Converted File</a>
+				</div>
+				 <div class="modal-footer">
+					<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+				 </div>
+			</div>
+		</div>
+
+		<div class="span6 offset2">
+			<div class="accordion" id="accordion2">
+
+			 <div class="accordion-group">
+				<div class="accordion-heading">
+				  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+				About
+				  </a>
+				</div>
+				<div id="collapseOne" class="accordion-body collapse">
+					<div class="accordion-inner">
+					I wrote this application to help Blender users develop animations for CloudParty's default avatars.
+					<br>It fixes an issue with the Blender Collada Import/Export plugin.The plugin alters the bone roll of the skeleton on import/export and because of this
+					 any animations created, using this skeleton, does not play correctly on the original CloudParty skeleton.
+					<br>This application corrects the animation by "undoing" the bone roll introduced by the plugin.
+					<br>You do not need this application if you are developing animations for avatars other than the default CloudParty avatar.
+					<br><br>
+					See
+					<!-- <br><a href="http://forums.cloudparty.com/discussion/902/fix-for-the-blender-avatar-animation-issue" target="_blank">CloudParty Forum Post - Fix for the Blender Avatar Animation Issue</a> -->
+					<br><a href="https://web.archive.org/web/20140127092326/http://forums.cloudparty.com/discussion/902/fix-for-the-blender-avatar-animation-issue" target="_blank">CloudParty Forum Post - Fix for the Blender Avatar Animation Issue</a>
+					
+					<br>or
+					<!-- <br><a href="http://forums.cloudparty.com/discussion/876/possible-fix-for-avatar-animations-in-blender" target="_blank">CloudParty Forum Post - Possible fix for avatar animations in Blender</a> -->
+					<br><a href="https://web.archive.org/web/20140127104625/http://forums.cloudparty.com/discussion/876/possible-fix-for-avatar-animations-in-blender" target="_blank">CloudParty Forum Post - Possible fix for avatar animations in Blender</a>
+					<br>for some discussions on this issue.
+					<br><br>
+					This application has been tested in Chrome 24.0.1312.57 m and FireFox 18.0.2 on Windows 7
+					</div>
+				</div>
+			  </div>
+
+			  <div class="accordion-group">
+				<div class="accordion-heading">
+				  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+				Quick Instructions
+				  </a>
+				</div>
+				<div id="collapseTwo" class="accordion-body collapse">
+				  <div class="accordion-inner">
+				<ol>
+				<li>Create animation in Blender using the blender files from the "Downloads" section below.</a>
+				<ul>
+				<li>The blender files containe the CP Default avatar imported into Blender.The avatar has been oriented towards you (the negative Y direction) for ease of creating animations.
+				<br>There is no need to rotate the avatar by 180 to face positive Y which is the CloudParty's forward direction. The converter takes care of this.
+				<li>Do not add any bindpose_skeleton. The converter adds the necessary bindpose_skeleton.
+				</ul>
+				<li>Export animation in Collada format</li>
+					<uL>
+					<li>You only need to export the b_root skeleton. The mesh is not required.
+					<li>Make sure the following Collada options are selected
+						<ul>
+						<li>Selection only
+						<li>Include Armatures
+						<li>Export for Second Life
+						</ul>
+
+					</ul>
+				<p>
+				<li>Use the Converter to load this file and convert it to CloudParty format.
+				<br>When the conversion is done, a link will appear. Right click the link and choose "Save the link as.." to save the file as a .daeanim file.
+				(The browser generates the file in memory and gives a random, unique name to it. Currently, this seems to be the best way to save it.)
+				<br>The conversion happens in your browser, in your computer. Nothing is sent or uploaded to the server
+				</li>
+				<p>
+				<li>Upload the converted file to CloudParty </li>
+				</ol>
+
+				  </div>
+				</div>
+			  </div>
+
+			  <div class="accordion-group">
+				<div class="accordion-heading">
+				  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+				Downloads
+				  </a>
+				</div>
+				<div id="collapseThree" class="accordion-body collapse">
+				  <div class="accordion-inner">
+					<a href="cp_avatar.zip">cp_avatar.zip</a>
+					<br/>
+					<br>The zip file contains the following files
+					<ul>
+						<li>"cp_female_avatar.blend" </li>
+						<li>"cp_female_avatar.dae" </li>
+						<li>"cp_female_avatar.daeanim" </li>
+						<li/>
+						<li>"cp_male_avatar.blend"</li>
+						<li>"cp_male_avatar.dae" </li>
+						<li>"cp_male_avatar.daeanim" </li>
+					</ul>
+					Use the ".blend" files for animation.
+					<br>The ".blend" files have a small animation in them called "wave".
+					<br>The ".dae" and ".daeanim" files are this animation exported and converted respectively.
+					<br>Use them for testing and reference purpose.
+				  </div>
+				</div>
+			  </div>
+
+			<div class="accordion-group">
+				<div class="accordion-heading">
+				  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+				Source
+				  </a>
+				</div>
+				<div id="collapseFour" class="accordion-body collapse">
+				  <div class="accordion-inner">
+					<a href="https://github.com/ssatguru/CloudParty-ColladaConverter" target="_blank">https://github.com/ssatguru/CloudParty-ColladaConverter</a>
+					
+				  </div>
+				</div>
+			  </div>
+			  
+			</div>
+		</div>
+
+	</div>
+
+	<!-- begin htmlcommentbox.com -->
+	 <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+	 <link rel="stylesheet" type="text/css" href="http://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+	 <script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "http://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24S7UfPmgQnmuVmmHxrAqj41"+"&opts=16854&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+	<!-- end htmlcommentbox.com -->
+
+</div>
+
+
+	<script src="../js/jquery-1.9.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="lib/babylon.2.6-12-09-2016.js"></script>
+       <!-- <script src="lib/babylon-2.4.js"></script> -->
+        <script src="lib/pep.0.4.1.min.js"></script>
+        <script src="js/MeshConverter.js"></script>
+        <style>
+            html, body {
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #renderCanvas {
+                width: 100%;
+                height: 100%;
+                touch-action: none;
+            }
+        </style>
+
+    </head>
+    <body>
+        <canvas id="renderCanvas"></canvas>
+        <div style="position: absolute;left: 10px;top: 10px; color: white">
+            pmd <input type="file" id="pmdLoader" />
+            <br>
+            psa <input type="file" id="psaLoader" />
+            <!--
+            <br><a href="" id="download">download</a>
+            -->
+        </div>
+        <script>
+            var main = new org.ssatguru.babylonjs.zad.Main();
+            var scene = main.start();
+            var meshConverter = new org.ssatguru.babylonjs.zad.MeshConverter();
+            meshConverter.convert(scene);
+            
+        </script>
+    </body>
+</html>
